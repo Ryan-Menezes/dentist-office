@@ -1,1 +1,16 @@
-<h1>Login</h1>
+<section class="container bg-primary">
+    <form action="" method="POST" class="form form-auth">
+        <h1>{{config 'app.name'}}</h1>
+
+        <div class="form-input">
+            <label class="form-label">E-Mail: </label>
+            <input type="email" name="email" placeholder="E-Mail" class="form-control" />
+        </div>
+        <div class="form-input">
+            <label class="form-label">Senha: </label>
+            <input type="password" name="password" placeholder="Senha" class="form-control" />
+        </div>
+        
+        <input type="submit" value="Entrar" class="btn btn-primary mt-4" />
+    </form>
+</section>

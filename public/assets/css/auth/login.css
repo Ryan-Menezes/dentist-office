@@ -1,0 +1,532 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: "Nunito", sans-serif;
+  color: #1c1c1c;
+}
+
+.bg-info {
+  background-color: #4f7bff;
+}
+
+.bg-success {
+  background-color: #2e9e30;
+}
+
+.bg-danger {
+  background-color: #fa3e2d;
+}
+
+.bg-warning {
+  background-color: #d1d10f;
+}
+
+.bg-dark {
+  background-color: #1c1c1c;
+}
+
+.bg-primary {
+  background-color: #037bfc;
+}
+
+.bg-secondary {
+  background-color: #7b03fc;
+}
+
+.bg-tertiary {
+  background-color: #d703fc;
+}
+
+.p-1 {
+  padding: 5px;
+}
+
+.pl-1 {
+  padding-left: 5px;
+}
+
+.pt-1 {
+  padding-top: 5px;
+}
+
+.pr-1 {
+  padding-right: 5px;
+}
+
+.pb-1 {
+  padding-bottom: 5px;
+}
+
+.p-2 {
+  padding: 10px;
+}
+
+.pl-2 {
+  padding-left: 10px;
+}
+
+.pt-2 {
+  padding-top: 10px;
+}
+
+.pr-2 {
+  padding-right: 10px;
+}
+
+.pb-2 {
+  padding-bottom: 10px;
+}
+
+.p-3, .form-control, .btn {
+  padding: 15px;
+}
+
+.pl-3 {
+  padding-left: 15px;
+}
+
+.pt-3 {
+  padding-top: 15px;
+}
+
+.pr-3 {
+  padding-right: 15px;
+}
+
+.pb-3 {
+  padding-bottom: 15px;
+}
+
+.p-4 {
+  padding: 20px;
+}
+
+.pl-4 {
+  padding-left: 20px;
+}
+
+.pt-4 {
+  padding-top: 20px;
+}
+
+.pr-4 {
+  padding-right: 20px;
+}
+
+.pb-4 {
+  padding-bottom: 20px;
+}
+
+.p-5 {
+  padding: 25px;
+}
+
+.pl-5 {
+  padding-left: 25px;
+}
+
+.pt-5 {
+  padding-top: 25px;
+}
+
+.pr-5 {
+  padding-right: 25px;
+}
+
+.pb-5 {
+  padding-bottom: 25px;
+}
+
+.p-6 {
+  padding: 30px;
+}
+
+.pl-6 {
+  padding-left: 30px;
+}
+
+.pt-6 {
+  padding-top: 30px;
+}
+
+.pr-6 {
+  padding-right: 30px;
+}
+
+.pb-6 {
+  padding-bottom: 30px;
+}
+
+.p-7, .container .form-auth {
+  padding: 35px;
+}
+
+.pl-7 {
+  padding-left: 35px;
+}
+
+.pt-7 {
+  padding-top: 35px;
+}
+
+.pr-7 {
+  padding-right: 35px;
+}
+
+.pb-7 {
+  padding-bottom: 35px;
+}
+
+.p-8 {
+  padding: 40px;
+}
+
+.pl-8 {
+  padding-left: 40px;
+}
+
+.pt-8 {
+  padding-top: 40px;
+}
+
+.pr-8 {
+  padding-right: 40px;
+}
+
+.pb-8 {
+  padding-bottom: 40px;
+}
+
+.p-9 {
+  padding: 45px;
+}
+
+.pl-9 {
+  padding-left: 45px;
+}
+
+.pt-9 {
+  padding-top: 45px;
+}
+
+.pr-9 {
+  padding-right: 45px;
+}
+
+.pb-9 {
+  padding-bottom: 45px;
+}
+
+.p-10 {
+  padding: 50px;
+}
+
+.pl-10 {
+  padding-left: 50px;
+}
+
+.pt-10, .container .form-auth {
+  padding-top: 50px;
+}
+
+.pr-10 {
+  padding-right: 50px;
+}
+
+.pb-10, .container .form-auth {
+  padding-bottom: 50px;
+}
+
+.m-1 {
+  margin: 5px;
+}
+
+.ml-1 {
+  margin-left: 5px;
+}
+
+.mt-1 {
+  margin-top: 5px;
+}
+
+.mr-1 {
+  margin-right: 5px;
+}
+
+.mb-1, .form-label {
+  margin-bottom: 5px;
+}
+
+.m-2 {
+  margin: 10px;
+}
+
+.ml-2 {
+  margin-left: 10px;
+}
+
+.mt-2 {
+  margin-top: 10px;
+}
+
+.mr-2 {
+  margin-right: 10px;
+}
+
+.mb-2 {
+  margin-bottom: 10px;
+}
+
+.m-3 {
+  margin: 15px;
+}
+
+.ml-3 {
+  margin-left: 15px;
+}
+
+.mt-3 {
+  margin-top: 15px;
+}
+
+.mr-3 {
+  margin-right: 15px;
+}
+
+.mb-3 {
+  margin-bottom: 15px;
+}
+
+.m-4 {
+  margin: 20px;
+}
+
+.ml-4 {
+  margin-left: 20px;
+}
+
+.mt-4 {
+  margin-top: 20px;
+}
+
+.mr-4 {
+  margin-right: 20px;
+}
+
+.mb-4, .form-input {
+  margin-bottom: 20px;
+}
+
+.m-5 {
+  margin: 25px;
+}
+
+.ml-5 {
+  margin-left: 25px;
+}
+
+.mt-5 {
+  margin-top: 25px;
+}
+
+.mr-5 {
+  margin-right: 25px;
+}
+
+.mb-5 {
+  margin-bottom: 25px;
+}
+
+.m-6 {
+  margin: 30px;
+}
+
+.ml-6 {
+  margin-left: 30px;
+}
+
+.mt-6 {
+  margin-top: 30px;
+}
+
+.mr-6 {
+  margin-right: 30px;
+}
+
+.mb-6 {
+  margin-bottom: 30px;
+}
+
+.m-7 {
+  margin: 35px;
+}
+
+.ml-7 {
+  margin-left: 35px;
+}
+
+.mt-7 {
+  margin-top: 35px;
+}
+
+.mr-7 {
+  margin-right: 35px;
+}
+
+.mb-7 {
+  margin-bottom: 35px;
+}
+
+.m-8 {
+  margin: 40px;
+}
+
+.ml-8 {
+  margin-left: 40px;
+}
+
+.mt-8 {
+  margin-top: 40px;
+}
+
+.mr-8 {
+  margin-right: 40px;
+}
+
+.mb-8 {
+  margin-bottom: 40px;
+}
+
+.m-9 {
+  margin: 45px;
+}
+
+.ml-9 {
+  margin-left: 45px;
+}
+
+.mt-9 {
+  margin-top: 45px;
+}
+
+.mr-9 {
+  margin-right: 45px;
+}
+
+.mb-9 {
+  margin-bottom: 45px;
+}
+
+.m-10 {
+  margin: 50px;
+}
+
+.ml-10 {
+  margin-left: 50px;
+}
+
+.mt-10 {
+  margin-top: 50px;
+}
+
+.mr-10 {
+  margin-right: 50px;
+}
+
+.mb-10, .container .form-auth h1 {
+  margin-bottom: 50px;
+}
+
+.btn {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  background-color: white;
+  border: none;
+  transition: 0.3s;
+  color: black;
+  cursor: pointer;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+.btn-primary {
+  background-color: #037bfc;
+  color: white;
+}
+.btn-danger {
+  background-color: #fa3e2d;
+  color: white;
+}
+.btn-danger:hover {
+  background-color: #ee1906;
+}
+
+.form {
+  background-color: white;
+}
+.form-label {
+  font-size: 16px;
+  font-weight: bold;
+}
+.form-input {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+.form-control {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #ededed;
+  background-color: #ededed;
+  width: 100%;
+  transition: 0.3;
+}
+.form-control:focus {
+  border: 1px solid #037bfc;
+}
+
+.container {
+  background-image: url("https://static.wixstatic.com/media/52f234_cd67545bd54542f7ac14e2af0e803eb9~mv2.gif");
+  background-size: 400px 400px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+}
+.container .form-auth {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  width: 400px;
+  border: 1px solid #ededed;
+  box-shadow: 0px 0px 10px #ededed;
+  background-color: white;
+  height: 100%;
+}
+.container .form-auth .btn {
+  width: 100%;
+}
+.container .form-auth h1 {
+  font-size: 50px;
+  color: #037bfc;
+}
+
+/*# sourceMappingURL=login.css.map */

@@ -1,0 +1,18 @@
+@mixin border-radius($radius: 5)
+    -webkit-border-radius: $radius
+    -moz-border-radius: $radius
+    -ms-border-radius: $radius
+    border-radius: $radius
+
+@mixin display-flex($align: center, $justify: center, $direction: row, $wrap: nowrap)
+    display: flex
+    align-items: $align
+    justify-content: $justify
+    flex-direction: $direction
+    flex-wrap: $wrap
+
+@mixin bg-image($image, $size: cover, $repeat: no-repeat, $position: center)
+    background-image: url($image)
+    background-size: $size
+    background-repeat: $repeat
+    background-position: $position

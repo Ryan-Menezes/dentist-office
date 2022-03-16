@@ -1,0 +1,28 @@
+@use 'variables'
+@use 'spaces'
+@use 'mixins'
+@use 'colors'
+    
+.btn
+    @include mixins.border-radius(3px)
+    @extend .p-3
+    background-color: white
+    border: none
+    transition: .3s
+    color: black
+    cursor: pointer
+    font-size: 16px
+    text-transform: uppercase
+    
+
+    &-primary
+        background-color: variables.$primary-color
+        color: white
+
+    &-danger
+        background-color: variables.$red
+        color: white
+
+        &:hover
+            background-color: darken(variables.$red, 10%)
+        

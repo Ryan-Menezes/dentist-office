@@ -1,0 +1,28 @@
+@use 'variables'
+@use 'spaces'
+@use 'mixins'
+@use 'colors'
+
+.form
+    background-color: white
+
+    &-label
+        @extend .mb-1
+        font-size: 16px
+        font-weight: bold
+
+    &-input
+        @include mixins.display-flex(flex-start, center, column)
+        @extend .mb-4
+        width: 100%
+
+    &-control
+        @include mixins.border-radius(3px)
+        @extend .p-3
+        border: 1px solid #ededed
+        background-color: #ededed
+        width: 100%
+        transition: .3
+
+        &:focus
+            border: 1px solid variables.$primary-color
