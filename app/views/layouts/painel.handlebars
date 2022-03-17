@@ -5,8 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}} | {{config 'app.name'}}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/brands.min.css" integrity="sha512-BglNUJaVmT9HacZ2AsbVQxjswBmIf3AJj9hhXr/Yre33qU+A1p8gXUcavzcHYkWf5bIvLMIiEbdMrEVqb5h2Rg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/fontawesome.min.css" integrity="sha512-KVdV5HNnN1f6YOANbRuNxyCnqyPICKUmQusEkyeRg4X0p8K1xCdbHs32aA7pWo6WqMZk0wAzl29cItZh8oBPYQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/regular.min.css" integrity="sha512-op8gZY0YqKAatlnYvmUvSqK4sBJQWYA0APRKExBXaTR1SyHHY/Pw4vtfw+L5VMXbVQb/Xvz4xE5d5U3E0wLz/g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/solid.min.css" integrity="sha512-LUxUs00S05YspUb2HCuUTBqTqbjJm2uNvwRXVTcl/jkr9ygYZptXhfknc52iBnPUNgHHHC9ivU4RV6UFxLxhfg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/svg-with-js.min.css" integrity="sha512-OiNHhQwzS1LlbvAM+EbRs/LeCL5RhAkv2pvr432TxTFGcxNcG6I8VVII7s4dUVwJJG7HtHKvsR7zzD5vuSlAlA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/v5-font-face.min.css" integrity="sha512-HoJcK6M3SQctK5xy9FlRUy0X4HsoUY5DZpqK5LuuTVbeJNlH8j3PyfGIs0oHmxzl4+mHfAyWd5w4T7kMO81c9w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{url}}/assets/css/panel/style.css" />
 </head>
 <body>
-    {{{body}}}
+    <section class="container">
+        <nav class="nav">
+            <div class="nav-header">
+                <h1 class="nav-header-title">{{config 'app.name'}}</h1>
+            </div>
+
+            <ul class="nav-list">
+                <a href="{{url}}/painel" title="Página Inicial">
+                    <li class="nav-list-item"><i class="fas fa-home"></i> Início</li>
+                </a>
+                <a href="{{url}}/painel/usuarios" title="Página de Usuários">
+                    <li class="nav-list-item"><i class="fas fa-users"></i> Usuários</li>
+                </a>
+                <a href="{{url}}/painel/consultas" title="Página de Consúltas">
+                    <li class="nav-list-item"><i class="fas fa-calendar"></i> Consúltas</li>
+                </a>
+                <a href="{{url}}/painel/funcoes" title="Página de Funções">
+                    <li class="nav-list-item"><i class="fas fa-user-tie"></i> Funções</li>
+                </a>
+                <a href="{{url}}/painel/permissoes" title="Página de Permissões">
+                    <li class="nav-list-item"><i class="fas fa-lock"></i> Permissões</li>
+                </a>
+                <a href="{{url}}/painel/sair" title="Sair do Painel">
+                    <li class="nav-list-item"><i class="fas fa-sign-out"></i> Sair</li>
+                </a>
+            </ul>
+        </nav>
+        <main class="content">
+            {{{body}}}
+        </main>
+    </section>
 </body>
 </html>

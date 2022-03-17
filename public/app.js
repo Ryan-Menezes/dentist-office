@@ -49,6 +49,11 @@ app.use(express.urlencoded({
 
 // Routes config
 app.use('/', require('../routes/auth/login'))
+app.use('/painel', require('../routes/panel/index'))
+app.use('/painel/usuarios', require('../routes/panel/users'))
+app.use('/painel/consultas', require('../routes/panel/queries'))
+app.use('/painel/funcoes', require('../routes/panel/roles'))
+app.use('/painel/permissoes', require('../routes/panel/permissions'))
 
 // Start Server
 app.listen(app.get('port'), () => {
