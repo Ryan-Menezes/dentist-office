@@ -17,13 +17,13 @@
 
     i
         color: white
-    
-    &:focus
-        border: 1px solid variables.$primary-color
 
     &-primary
         background-color: variables.$primary-color
         color: white
+
+        &:hover
+            background-color: darken(variables.$primary-color, 10%)
 
     &-danger
         background-color: variables.$red

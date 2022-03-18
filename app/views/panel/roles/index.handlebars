@@ -1,8 +1,8 @@
 <div class="info-cont">
     <div class="info-heading">
-        <h2 class="info-heading-title">Funções</h2>
+        <h2 class="info-heading-title">{{title}}</h2>
 
-        <a href="{{url}}/funcoes/novo" class="btn btn-danger">Novo <i class="fas fa-plus-circle"></i></a>
+        <a href="{{url}}/painel/funcoes/novo" class="btn btn-danger">Novo <i class="fas fa-plus-circle"></i></a>
     </div>
 
     <table class="table">
@@ -11,19 +11,25 @@
                 <th>Id</th>
                 <th>Nome</th>
                 <th>Descrição</th>
+                <th>Criado em</th>
+                <th>Atualizado em</th>
                 <th>Ações</th>
             </tr>
         </thead>
         <tbody>
+            {{#each roles}}
             <tr>
-                <td>1</td>
-                <td>Administrador</td>
-                <td>Administrador</td>
+                <td>{{this.dataValues.id}}</td>
+                <td>{{this.dataValues.name}}</td>
+                <td>{{this.dataValues.description}}</td>
+                <td>{{dateFormat this.dataValues.createdAt}}</td>
+                <td>{{dateFormat this.dataValues.updatedAt}}</td>
                 <td>
-                    <a href="{{url}}/funcoes/1/deletar" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                    <a href="{{url}}/funcoes/1/editar" class="btn btn-primary"><i class="fas fa-pencil"></i></a>
+                    <a href="{{url}}/painel/funcoes/{{this.dataValues.id}}/deletar" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                    <a href="{{url}}/painel/funcoes/{{this.dataValues.id}}/editar" class="btn btn-primary"><i class="fas fa-pencil"></i></a>
                 </td>
             </tr>
+            {{/each}}
         </tbody>
     </table>
 </div>

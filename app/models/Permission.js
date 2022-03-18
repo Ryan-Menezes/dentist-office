@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
         sequelize,
         modelName: 'Permission',
         tableName: 'permissions',
-        underscored: true,
+        underscored: false,
         timestamps: true
     })
 

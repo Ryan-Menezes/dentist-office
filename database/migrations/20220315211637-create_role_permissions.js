@@ -15,7 +15,9 @@ module.exports = {
                 references: {
                     model: 'roles',
                     key: 'id'
-                }
+                },
+                onDelete: 'cascade',
+                onUpdate: 'cascade'
             },
             permissionId: {
                 type: Sequelize.INTEGER,
@@ -23,7 +25,19 @@ module.exports = {
                 references: {
                     model: 'permissions',
                     key: 'id'
-                }
+                },
+                onDelete: 'cascade',
+                onUpdate: 'cascade'
+            },
+            createdAt: {
+                type: Sequelize.DATE,
+                allowNull: false,
+                defaultValue: new Date()
+            },
+            updatedAt: {
+                type: Sequelize.DATE,
+                allowNull: false,
+                defaultValue: new Date()
             }
         });
     },

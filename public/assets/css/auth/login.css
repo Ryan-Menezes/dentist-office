@@ -470,12 +470,12 @@
 .btn i {
   color: white;
 }
-.btn:focus {
-  border: 1px solid #037bfc;
-}
 .btn-primary {
   background-color: #037bfc;
   color: white;
+}
+.btn-primary:hover {
+  background-color: #0262ca;
 }
 .btn-danger {
   background-color: #fa3e2d;

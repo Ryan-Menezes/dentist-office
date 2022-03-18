@@ -13,6 +13,6 @@ module.exports = {
     seederStorageTableName: 'seeders',
     define: {
         timestamps: true,
-        underscored: true
+        underscored: false
     }
 }

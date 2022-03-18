@@ -1,0 +1,18 @@
+<div class="info-cont">
+    <div class="info-heading">
+        <h2 class="info-heading-title">{{title}}</h2>
+    </div>
+
+    <form action="{{url}}/funcoes/{{role.id}}/editar" method="POST" class="form">
+        <div class="form-input">
+            <label class="form-label" for="name">Nome: </label>
+            <input type="text" name="name" id="name" placeholder="Nome" class="form-control" required="required" value="{{role.name}}" />
+        </div>
+        <div class="form-input">
+            <label class="form-label" for="description">Descrição: </label>
+            <textarea name="description" id="description" placeholder="Descrição" class="form-control" required="required" rows="5">{{role.description}}</textarea>
+        </div>
+
+        <input type="submit" value="Salvar" class="btn btn-primary p-3 mt-4" />
+    </form>
+</div>

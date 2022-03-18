@@ -33,6 +33,13 @@ const hbs = handlebars.create({
         },
         dateFormat: function(date, locale = 'pt-BR'){
             return date.toLocaleString(locale)
+        },
+        roleExists: function(roles, role){
+            if(!Array.isArray(roles)){
+                roles = []
+            }
+
+            return Boolean(roles.find(r => r.dataValues.id == role.id))
         }
     }
 })
