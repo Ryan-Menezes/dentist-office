@@ -15,4 +15,7 @@ router.post('/novo', UserController.store)
 router.get('/:id/editar', UserController.edit)
 router.post('/:id/editar', UserController.update)
 
+// ROUTE DELETE
+router.get('/:id/deletar', UserController.delete)
+
 module.exports = router

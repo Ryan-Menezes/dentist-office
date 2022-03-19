@@ -90,5 +90,25 @@ module.exports = {
         .catch(async (error) => {
             await res.status(500).json(error)
         })
+    },
+
+    async delete(req, res, next){
+        const id = req.params.id
+
+        Query.destroy({
+            where: {
+                id
+            }
+        })
+        .then(async (result) => {
+            if(!result){
+                return res.status(404).json(result)
+            }
+
+            await res.status(200).redirect(`${url}`)
+        })
+        .catch(async (error) => {
+            await res.status(500).json(error)
+        })
     }
 }

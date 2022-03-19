@@ -15,4 +15,7 @@ router.post('/novo', RoleController.store)
 router.get('/:id/editar', RoleController.edit)
 router.post('/:id/editar', RoleController.update)
 
+// ROUTE DELETE
+router.get('/:id/deletar', RoleController.delete)
+
 module.exports = router

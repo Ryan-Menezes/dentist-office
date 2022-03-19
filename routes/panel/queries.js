@@ -15,4 +15,7 @@ router.post('/novo', QueryController.store)
 router.get('/:id/editar', QueryController.edit)
 router.post('/:id/editar', QueryController.update)
 
+// ROUTE DELETE
+router.get('/:id/deletar', QueryController.delete)
+
 module.exports = router
