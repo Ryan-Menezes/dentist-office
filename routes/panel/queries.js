@@ -9,8 +9,10 @@ router.get('/', QueryController.index)
 
 // ROUTE CREATE
 router.get('/novo', QueryController.create)
+router.post('/novo', QueryController.store)
 
 // ROUTE EDIT
 router.get('/:id/editar', QueryController.edit)
+router.post('/:id/editar', QueryController.update)
 
 module.exports = router

@@ -3,7 +3,7 @@
         <h2 class="info-heading-title">{{title}}</h2>
     </div>
 
-    <form action="{{url}}/funcoes/novo" method="POST" class="form">
+    <form action="{{url}}/painel/funcoes/novo" method="POST" class="form">
         <div class="form-input">
             <label class="form-label" for="name">Nome: </label>
             <input type="text" name="name" id="name" placeholder="Nome" class="form-control" required="required" />
@@ -11,6 +11,17 @@
         <div class="form-input">
             <label class="form-label" for="description">Descrição: </label>
             <textarea name="description" id="description" placeholder="Descrição" class="form-control" required="required" rows="5" ></textarea>
+        </div>
+        <div class="form-input">
+            <label class="form-label">Permissões: </label>
+            <div class="form-control">
+                {{#each permissions}}
+                <div>
+                    <input type="checkbox" name="permissions[]" id="permission_{{this.dataValues.id}}" value="{{this.dataValues.id}}" />
+                    <label class="form-label" for="permission_{{this.dataValues.id}}">{{this.dataValues.name}}</label>
+                </div>     
+                {{/each}}
+            </div>
         </div>
 
         <input type="submit" value="Salvar" class="btn btn-primary p-3 mt-4" />

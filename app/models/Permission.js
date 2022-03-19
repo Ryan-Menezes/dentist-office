@@ -15,8 +15,24 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     Permission.init({
-        name: DataTypes.STRING,
-        description: DataTypes.TEXT
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: {
+                    args: true,
+                    msg: 'O campo nome é de preenchimento obrigatório!'
+                },
+                len: {
+                    args: [1, 191],
+                    msg: 'O campo nome deve conter no minímo 1 digíto e no máximo 191 digítos!'
+                }
+            }
+        },
+        description: {
+            type: DataTypes.TEXT,
+            allowNull: true
+        },
     }, {
         sequelize,
         modelName: 'Permission',

@@ -3,7 +3,7 @@
         <h2 class="info-heading-title">{{title}}</h2>
     </div>
 
-    <form action="{{url}}/usuarios/{{user.id}}/editar" method="POST" class="form">
+    <form action="{{url}}/painel/usuarios/{{user.id}}/editar" method="POST" class="form">
         <div class="form-input">
             <label class="form-label" for="first_name">Nome: </label>
             <input type="text" name="first_name" id="first_name" placeholder="Nome" class="form-control" required="required" value="{{user.first_name}}" />
@@ -18,7 +18,7 @@
         </div>
         <div class="form-input">
             <label class="form-label" for="password">Senha: </label>
-            <input type="password" name="password" id="password" placeholder="Senha" class="form-control" required="required" />
+            <input type="password" name="password" id="password" placeholder="Senha" class="form-control" />
         </div>
         <div class="form-input">
             <label class="form-label" for="role">Função: </label>

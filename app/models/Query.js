@@ -11,9 +11,9 @@ module.exports = (sequelize, DataTypes) => {
 
     Query.init({
         pacient_name: DataTypes.STRING,
-        description: DataTypes.TEXT,
         status: DataTypes.ENUM('MA', 'CO', 'CA'), // MA - Market | CO - Concluded | CA - Canceled
-        date_query: DataTypes.DATE
+        date_query: DataTypes.DATE,
+        description: DataTypes.TEXT
     }, {
         sequelize,
         modelName: 'Query',

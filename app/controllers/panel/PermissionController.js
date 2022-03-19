@@ -1,6 +1,7 @@
 const { Permission } = require('../../models/index')
 
 const dir = 'panel/permissions/'
+const url = '/painel/permissoes/'
 
 module.exports = {
     async index(req, res, next){

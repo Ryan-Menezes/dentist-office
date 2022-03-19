@@ -40,6 +40,16 @@ const hbs = handlebars.create({
             }
 
             return Boolean(roles.find(r => r.dataValues.id == role.id))
+        },
+        permissionExists: function(permissions, permission){
+            if(!Array.isArray(permissions)){
+                permissions = []
+            }
+
+            return Boolean(permissions.find(p => p.dataValues.id == permission.id))
+        },
+        equals: function(v1, v2){
+            return v1 == v2
         }
     }
 })

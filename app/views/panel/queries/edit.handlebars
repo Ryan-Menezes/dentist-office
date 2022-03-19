@@ -1,0 +1,44 @@
+<div class="info-cont">
+    <div class="info-heading">
+        <h2 class="info-heading-title">{{title}}</h2>
+    </div>
+
+    <form action="{{url}}/painel/consultas/{{query.id}}/editar" method="POST" class="form">
+        <div class="form-input">
+            <label class="form-label" for="pacient_name">Nome do Paciente: </label>
+            <input type="text" name="pacient_name" id="pacient_name" placeholder="Nome do Paciente" class="form-control" required="required" value="{{query.pacient_name}}" />
+        </div>
+        <div class="form-input">
+            <label class="form-label" for="date_query">Data da Consúlta: </label>
+            <input type="datetime-local" name="date_query" id="date_query" placeholder="Data da Consúlta" class="form-control" required="required" value="{{query.date_query}}" />
+        </div>
+        <div class="form-input">
+            <label class="form-label" for="status">Status: </label>
+            <select name="status" id="status" class="form-control" required="required">
+                {{#if (equals query.status 'MA')}}
+                <option value="MA" selected="selected">Marcada</option>
+                {{else}}
+                <option value="MA">Marcada</option>
+                {{/if}}
+                
+                {{#if (equals query.status  'CO')}}
+                <option value="CO" selected="selected">Concluído</option>
+                {{else}}
+                <option value="CO">Concluído</option>
+                {{/if}}
+
+                {{#if (equals query.status 'CA')}}
+                <option value="CA" selected="selected">Cancelado</option>
+                {{else}}
+                <option value="CA">Cancelado</option>
+                {{/if}}
+            </select>
+        </div>
+        <div class="form-input">
+            <label class="form-label" for="description">Descrição: </label>
+            <textarea name="description" id="description" placeholder="Descrição" class="form-control" required="required" rows="5">{{query.description}}</textarea>
+        </div>
+
+        <input type="submit" value="Salvar" class="btn btn-primary p-3 mt-4" />
+    </form>
+</div>

@@ -13,10 +13,6 @@ module.exports = {
                 type: Sequelize.STRING,
                 allowNull: false
             },
-            description: {
-                type: Sequelize.TEXT,
-                allowNull: false
-            },
             status: {
                 type: Sequelize.ENUM('MA', 'CO', 'CA'), // MA - Market | CO - Concluded | CA - Canceled
                 allowNull: false,
@@ -24,6 +20,10 @@ module.exports = {
             },
             date_query: {
                 type: Sequelize.DATE,
+                allowNull: false
+            },
+            description: {
+                type: Sequelize.TEXT,
                 allowNull: false
             },
             createdAt: {
