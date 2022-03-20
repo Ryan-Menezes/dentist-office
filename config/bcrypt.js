@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
-    salt: 10
+    salt: process.env.BCRYPT_SALT
 }

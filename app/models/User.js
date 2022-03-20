@@ -92,6 +92,13 @@ module.exports = (sequelize, DataTypes) => {
                 }
             },
 
+            beforeSave: async (user, options) => {
+                if(user.password.trim()){
+                    user.password = bcryptjs.hashSync(user.password, bcrypt.salt)
+                }
+            },
+
+            /*
             beforeUpdate: async (user, options) => {
                 if(user.password.trim()){
                     user.password = bcryptjs.hashSync(user.password, bcrypt.salt)
@@ -101,6 +108,7 @@ module.exports = (sequelize, DataTypes) => {
                     user.password = _user.password
                 }
             }
+            */
         }
     })
 

@@ -41,7 +41,11 @@ module.exports = {
             await res.status(200).redirect(`${url}novo`)
         })
         .catch(async (error) => {
-            await res.status(500).json(error)
+            await res.status(500).render('error', {
+                layout: false,
+                error: 500,
+                message: JSON.stringify(error)
+            })
         })
     },
 
@@ -49,7 +53,10 @@ module.exports = {
         Query.findByPk(req.params.id)
         .then(async (query) => {
             if(!query){
-                return res.status(404).json(query)
+                return res.status(404).render('error', {
+                    layout: false,
+                    error: 404
+                })
             }
 
             const q = query.dataValues
@@ -61,7 +68,11 @@ module.exports = {
             })
         })
         .catch(async (error) => {
-            await res.status(500).json(error)
+            await res.status(500).render('error', {
+                layout: false,
+                error: 500,
+                message: JSON.stringify(error)
+            })
         })
     },
 
@@ -82,13 +93,21 @@ module.exports = {
         })
         .then(async (result) => {
             if(!result){
-                return res.status(404).json(result)
+                return res.status(404).render('error', {
+                    layout: false,
+                    error: 404,
+                    message: JSON.stringify(result)
+                })
             }
 
             await res.status(200).redirect(`${url}${id}/editar`)
         })
         .catch(async (error) => {
-            await res.status(500).json(error)
+            await res.status(500).render('error', {
+                layout: false,
+                error: 500,
+                message: JSON.stringify(error)
+            })
         })
     },
 
@@ -102,13 +121,21 @@ module.exports = {
         })
         .then(async (result) => {
             if(!result){
-                return res.status(404).json(result)
+                return res.status(404).render('error', {
+                    layout: false,
+                    error: 404,
+                    message: JSON.stringify(result)
+                })
             }
 
             await res.status(200).redirect(`${url}`)
         })
         .catch(async (error) => {
-            await res.status(500).json(error)
+            await res.status(500).render('error', {
+                layout: false,
+                error: 500,
+                message: JSON.stringify(error)
+            })
         })
     }
 }

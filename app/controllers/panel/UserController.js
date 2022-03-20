@@ -1,4 +1,6 @@
 const { User, Role } = require('../../models/index')
+const bcryptjs = require('bcryptjs')
+const bcrypt = require('../../../config/bcrypt')
 
 const dir = 'panel/users/'
 const url = '/painel/usuarios/'
@@ -31,7 +33,11 @@ module.exports = {
             })
         })
         .catch(async (error) => {
-            await res.status(500).json(error)
+            await res.status(500).render('error', {
+                layout: false,
+                error: 500,
+                message: JSON.stringify(error)
+            })
         })
     },
 
@@ -49,7 +55,11 @@ module.exports = {
             await res.status(200).redirect(`${url}novo`)
         })
         .catch(async (error) => {
-            await res.status(500).json(error)
+            await res.status(500).render('error', {
+                layout: false,
+                error: 500,
+                message: JSON.stringify(error)
+            })
         })
     },
 
@@ -64,7 +74,10 @@ module.exports = {
             })
             .then(async (user) => {
                 if(!user){
-                    return res.status(404).json(user)
+                    return res.status(404).render('error', {
+                        layout: false,
+                        error: 404
+                    })
                 }
     
                 await res.status(200).render(`${dir}edit`, {
@@ -74,11 +87,19 @@ module.exports = {
                 })
             })
             .catch(async (error) => {
-                await res.status(500).json(error)
+                await res.status(500).render('error', {
+                    layout: false,
+                    error: 500,
+                    message: JSON.stringify(error)
+                })
             })
         })
-        .catch(async (error) => {
-            await res.status(500).json(error)
+       .catch(async (error) => {
+            await res.status(500).render('error', {
+                layout: false,
+                error: 500,
+                message: JSON.stringify(error)
+            })
         })
     },
 
@@ -100,7 +121,7 @@ module.exports = {
                 first_name: data.first_name,
                 last_name: data.last_name,
                 email: data.email,
-                password: data.password
+                password: (data.password.trim() ? bcryptjs.hashSync(data.password, bcrypt.salt) : user.password)
             }, {
                 where: {
                     id
@@ -108,7 +129,11 @@ module.exports = {
             })
             .then(async (result) => {
                 if(!result){
-                    return res.status(404).json(result)
+                    return res.status(404).render('error', {
+                        layout: false,
+                        error: 404,
+                        message: JSON.stringify(result)
+                    })
                 }
 
                 await user.roles.forEach(async role => await user.removeRole(role.id))
@@ -116,11 +141,19 @@ module.exports = {
                 await res.status(200).redirect(`${url}${id}/editar`)
             })
             .catch(async (error) => {
-                await res.status(500).json(error)
+                await res.status(500).render('error', {
+                    layout: false,
+                    error: 500,
+                    message: JSON.stringify(error)
+                })
             })
         })
         .catch(async (error) => {
-            await res.status(500).json(error)
+            await res.status(500).render('error', {
+                layout: false,
+                error: 500,
+                message: JSON.stringify(error)
+            })
         })
     },
 
@@ -134,13 +167,21 @@ module.exports = {
         })
         .then(async (result) => {
             if(!result){
-                return res.status(404).json(result)
+                return res.status(404).render('error', {
+                    layout: false,
+                    error: 404,
+                    message: JSON.stringify(result)
+                })
             }
 
             await res.status(200).redirect(`${url}`)
         })
         .catch(async (error) => {
-            await res.status(500).json(error)
+            await res.status(500).render('error', {
+                layout: false,
+                error: 500,
+                message: JSON.stringify(error)
+            })
         })
     }
 }

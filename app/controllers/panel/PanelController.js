@@ -1,4 +1,5 @@
 const { User, Query, Role, Permission } = require('../../models/index')
+const auth = require('../../../config/auth')
 
 const dir = 'panel/'
 const url = '/painel/'
@@ -20,6 +21,7 @@ module.exports = {
     },
 
     async logout(req, res, next){
+        await res.clearCookie(auth.cookie.name)
         await res.status(200).redirect('/')
     }
 }

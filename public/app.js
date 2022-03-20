@@ -1,6 +1,7 @@
 const path = require('path')
 const express = require('express')
 const handlebars = require('express-handlebars')
+const cookieParser = require('cookie-parser')
 
 // App config
 const app = express()
@@ -59,6 +60,7 @@ app.use(express.static(path.join(__dirname, '..', 'public')))
 app.engine('handlebars', hbs.engine)
 app.set('view engine', 'handlebars')
 app.set('views', path.join(__dirname, '..', 'app', 'views'))
+app.use(cookieParser())
 app.use(express.json())
 app.use(express.urlencoded({
     extended: false
@@ -66,6 +68,8 @@ app.use(express.urlencoded({
 
 // Routes config
 app.use('/', require('../routes/auth/login'))
+app.use(require('../app/middlewares/auth'))
+// app.use(require('../app/middlewares/permission'))
 app.use('/painel', require('../routes/panel/index'))
 app.use('/painel/usuarios', require('../routes/panel/users'))
 app.use('/painel/consultas', require('../routes/panel/queries'))
