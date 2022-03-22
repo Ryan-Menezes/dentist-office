@@ -1,0 +1,29 @@
+@use '../partials/variables'
+@use '../partials/mixins'
+@use '../partials/colors'
+    
+.modal
+    @include mixins.display-flex(center, center)
+    position: fixed
+    left: 0
+    top: 0
+    background-color: rgba(0, 0, 0, 0.5)
+    width: 100vw
+    height: 100vh
+    z-index: 99999
+    display: none
+
+    &-title
+        font-size: 20px
+        font-weight: bold
+        margin-bottom: 20px
+
+    &-content
+        padding: 30px
+        width: 500px
+        background-color: white
+
+    &-btns
+        @include mixins.display-flex(center, flex-end)
+        padding-top: 20px
+        border-top: 1px solid #e8e8e8

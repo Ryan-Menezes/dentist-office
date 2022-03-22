@@ -5,6 +5,7 @@
 @use '../partials/btn'
 @use '../partials/form'
 @use '../partials/table'
+@use '../partials/modal'
 
 .container
     display: grid
@@ -89,3 +90,8 @@
                     &-title, &-result
                         h3
                             color: white
+
+.column-two
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    grid-gap: 20px

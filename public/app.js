@@ -76,6 +76,14 @@ app.use('/painel/consultas', require('../routes/panel/queries'))
 app.use('/painel/funcoes', require('../routes/panel/roles'))
 app.use('/painel/permissoes', require('../routes/panel/permissions'))
 
+// Error 404
+app.use(function (req, res, next) {
+    res.status(404).render('error', {
+        layout: false,
+        error: 404
+    })
+})
+
 // Start Server
 app.listen(app.get('port'), () => {
     console.log(`http://localhost:${app.get('port')}`)

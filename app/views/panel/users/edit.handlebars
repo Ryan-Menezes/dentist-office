@@ -4,22 +4,28 @@
     </div>
 
     <form action="{{url}}/painel/usuarios/{{user.id}}/editar" method="POST" class="form">
-        <div class="form-input">
-            <label class="form-label" for="first_name">Nome: </label>
-            <input type="text" name="first_name" id="first_name" placeholder="Nome" class="form-control" required="required" value="{{user.first_name}}" />
+        <div class="column-two">
+            <div class="form-input">
+                <label class="form-label" for="first_name">Nome: </label>
+                <input type="text" name="first_name" id="first_name" placeholder="Nome" class="form-control" required="required" value="{{user.first_name}}" />
+            </div>
+            <div class="form-input">
+                <label class="form-label" for="last_name">Sobrenome: </label>
+                <input type="text" name="last_name" id="last_name" placeholder="Sobrenome" class="form-control" required="required" value="{{user.last_name}}" />
+            </div>
         </div>
-        <div class="form-input">
-            <label class="form-label" for="last_name">Sobrenome: </label>
-            <input type="text" name="last_name" id="last_name" placeholder="Sobrenome" class="form-control" required="required" value="{{user.last_name}}" />
+        
+        <div class="column-two">
+            <div class="form-input">
+                <label class="form-label" for="email">E-Mail: </label>
+                <input type="email" name="email" id="email" placeholder="E-Mail" class="form-control" required="required" value="{{user.email}}" />
+            </div>
+            <div class="form-input">
+                <label class="form-label" for="password">Senha: </label>
+                <input type="password" name="password" id="password" placeholder="Senha" class="form-control" />
+            </div>
         </div>
-        <div class="form-input">
-            <label class="form-label" for="email">E-Mail: </label>
-            <input type="email" name="email" id="email" placeholder="E-Mail" class="form-control" required="required" value="{{user.email}}" />
-        </div>
-        <div class="form-input">
-            <label class="form-label" for="password">Senha: </label>
-            <input type="password" name="password" id="password" placeholder="Senha" class="form-control" />
-        </div>
+        
         <div class="form-input">
             <label class="form-label" for="role">Função: </label>
             <select name="role" id="role" class="form-control" required="required">

@@ -1,3 +1,13 @@
+<section class="modal modal-delete">
+    <div class="modal-content">
+        <p class="modal-title">Você realmente deseja deletar este usuário?</p>
+        <div class="modal-btns">
+            <a href="javascript:void(0)" title="Cancelar" class="btn btn-cancel">Cancelar</a>
+            <a href="" title="Deletar" class="btn btn-danger btn-delete">Sim, Quero deletar!</a>
+        </div>
+    </div>
+</section>
+
 <div class="info-cont">
     <div class="info-heading">
         <h2 class="info-heading-title">{{title}}</h2>
@@ -25,7 +35,7 @@
                 <td>{{dateFormat this.dataValues.createdAt}}</td>
                 <td>{{dateFormat this.dataValues.updatedAt}}</td>
                 <td>
-                    <a href="{{url}}/painel/usuarios/{{this.dataValues.id}}/deletar" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                    <a href="javascript:void(0)" data-delete="{{url}}/painel/usuarios/{{this.dataValues.id}}/deletar" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                     <a href="{{url}}/painel/usuarios/{{this.dataValues.id}}/editar" class="btn btn-primary"><i class="fas fa-pencil"></i></a>
                 </td>
             </tr>
