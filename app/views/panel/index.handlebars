@@ -4,6 +4,7 @@
     </div>
 
     <div class="cards">
+        {{#if (can auth 'view.users')}}
         <a href="{{url}}/painel/usuarios" title="Usuários">
             <div class="card bg-secondary">
                 <div class="card-title">
@@ -14,7 +15,9 @@
                 </div>
             </div>
         </a>
+        {{/if}}
         
+        {{#if (can auth 'view.queries')}}
         <a href="{{url}}/painel/consultas" title="Consúltas">
             <div class="card bg-tertiary">
                 <div class="card-title">
@@ -25,7 +28,9 @@
                 </div>
             </div>
         </a>
+        {{/if}}
         
+        {{#if (can auth 'view.roles')}}
         <a href="{{url}}/painel/funcoes" title="Funções">
             <div class="card bg-dark">
                 <div class="card-title">
@@ -36,7 +41,9 @@
                 </div>
             </div>
         </a>
+        {{/if}}
         
+        {{#if (can auth 'view.permissions')}}
         <a href="{{url}}/painel/permissoes" title="Permissões">
             <div class="card bg-success">
                 <div class="card-title">
@@ -47,5 +54,6 @@
                 </div>
             </div>
         </a>
+        {{/if}}
     </div>
 </div>

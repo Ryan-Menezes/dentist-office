@@ -12,7 +12,9 @@
     <div class="info-heading">
         <h2 class="info-heading-title">{{title}}</h2>
 
+        {{#if (can auth 'create.users')}}
         <a href="{{url}}/painel/usuarios/novo" class="btn btn-danger">Novo <i class="fas fa-plus-circle"></i></a>
+        {{/if}}
     </div>
 
     <table class="table">
@@ -35,8 +37,13 @@
                 <td>{{dateFormat this.dataValues.createdAt}}</td>
                 <td>{{dateFormat this.dataValues.updatedAt}}</td>
                 <td>
+                    {{#if (can ../auth 'delete.users')}}
                     <a href="javascript:void(0)" data-delete="{{url}}/painel/usuarios/{{this.dataValues.id}}/deletar" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                    {{/if}}
+                    
+                    {{#if (can ../auth 'edit.users')}}
                     <a href="{{url}}/painel/usuarios/{{this.dataValues.id}}/editar" class="btn btn-primary"><i class="fas fa-pencil"></i></a>
+                    {{/if}}
                 </td>
             </tr>
             {{/each}}

@@ -1,13 +1,17 @@
 const { Query } = require('../../models/index')
+const permission = require('../../middlewares/permission')
 
 const dir = 'panel/queries/'
 const url = '/painel/consultas/'
 
 module.exports = {
     async index(req, res, next){
+        permission(req, res, next, 'view.queries')
+
         Query.findAll()
         .then(async (queries) => {
             await res.status(200).render(`${dir}index`, {
+                auth: req.user,
                 title: 'Consúltas',
                 queries
             })
@@ -16,6 +20,7 @@ module.exports = {
             console.error(error)
 
             await res.status(500).render(`${dir}index`, {
+                auth: req.user,
                 title: 'Consúltas',
                 queries: []
             })
@@ -23,12 +28,17 @@ module.exports = {
     },
 
     async create(req, res, next){
+        permission(req, res, next, 'create.queries')
+
         await res.status(200).render(`${dir}create`, {
+            auth: req.user,
             title: 'Nova Consúlta'
         })
     },
 
     async store(req, res, next){
+        permission(req, res, next, 'create.queries')
+
         const data = req.body
 
         Query.create({
@@ -50,6 +60,8 @@ module.exports = {
     },
 
     async edit(req, res, next){
+        permission(req, res, next, 'edit.queries')
+
         Query.findByPk(req.params.id)
         .then(async (query) => {
             if(!query){
@@ -63,6 +75,7 @@ module.exports = {
             q.date_query = q.date_query.toISOString().replace(/\.0*Z/, '')
 
             await res.status(200).render(`${dir}edit`, {
+                auth: req.user,
                 title: 'Editar Consúlta',
                 query: q
             })
@@ -78,6 +91,8 @@ module.exports = {
 
 
     async update(req, res, next){
+        permission(req, res, next, 'edit.queries')
+
         const id = req.params.id
         const data = req.body
 
@@ -112,6 +127,8 @@ module.exports = {
     },
 
     async delete(req, res, next){
+        permission(req, res, next, 'delete.queries')
+
         const id = req.params.id
 
         Query.destroy({

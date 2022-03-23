@@ -1,4 +1,5 @@
 const { User, Role } = require('../../models/index')
+const permission = require('../../middlewares/permission')
 const bcryptjs = require('bcryptjs')
 const bcrypt = require('../../../config/bcrypt')
 
@@ -7,9 +8,12 @@ const url = '/painel/usuarios/'
 
 module.exports = {
     async index(req, res, next){
+        permission(req, res, next, 'view.users')
+
         User.findAll()
         .then(async (users) => {
             await res.status(200).render(`${dir}index`, {
+                auth: req.user,
                 title: 'Usuários',
                 users
             })
@@ -18,6 +22,7 @@ module.exports = {
             console.error(error)
 
             await res.status(500).render(`${dir}index`, {
+                auth: req.user,
                 title: 'Usuários',
                 users: []
             })
@@ -25,9 +30,12 @@ module.exports = {
     },
 
     async create(req, res, next){
+        permission(req, res, next, 'create.users')
+
         Role.findAll()
         .then(async (roles) => {
             await res.status(200).render(`${dir}create`, {
+                auth: req.user,
                 title: 'Novo Usuário',
                 roles
             })
@@ -42,6 +50,8 @@ module.exports = {
     },
 
     async store(req, res, next){
+        permission(req, res, next, 'create.users')
+
         const data = req.body
 
         User.create({
@@ -64,6 +74,8 @@ module.exports = {
     },
 
     async edit(req, res, next){
+        permission(req, res, next, 'edit.users')
+
         Role.findAll()
         .then(async (roles) => {
             User.findByPk(req.params.id, {
@@ -81,6 +93,7 @@ module.exports = {
                 }
     
                 await res.status(200).render(`${dir}edit`, {
+                    auth: req.user,
                     title: 'Editar Usuário',
                     roles,
                     user: user.dataValues
@@ -104,6 +117,8 @@ module.exports = {
     },
 
     async update(req, res, next){
+        permission(req, res, next, 'edit.users')
+
         const id = req.params.id
         const data = req.body
 
@@ -158,6 +173,8 @@ module.exports = {
     },
 
     async delete(req, res, next){
+        permission(req, res, next, 'delete.users')
+
         const id = req.params.id
 
         User.destroy({

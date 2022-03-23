@@ -2,6 +2,7 @@ const path = require('path')
 const express = require('express')
 const handlebars = require('express-handlebars')
 const cookieParser = require('cookie-parser')
+const { Role, Permission } = require('../app/models/index')
 
 // App config
 const app = express()
@@ -51,6 +52,40 @@ const hbs = handlebars.create({
         },
         equals: function(v1, v2){
             return v1 == v2
+        },
+        can: async function(auth, permission){
+            if(!Array.isArray(auth.roles)){
+                return false
+            }
+
+            for(const role of auth.roles){
+                if(role){
+                    try{
+                        const permissions = await Permission.findAll({
+                            where: {
+                                name: permission
+                            },
+                            include: {
+                                model: Role,
+                                as: 'roles',
+                                through: {
+                                    where: {
+                                        roleId: role.id
+                                    }
+                                }
+                            }
+                        })
+
+                        await console.log(permissions.length, permission)
+
+                        return Boolean(permissions.length)
+                    }catch(e){
+                        return false
+                    }
+                }
+            }
+
+            return false
         }
     }
 })

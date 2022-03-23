@@ -12,6 +12,7 @@ module.exports = {
         const permissionCount = await Permission.count()
 
         await res.status(200).render(`${dir}index`, {
+            auth: req.user,
             title: 'Início',
             userCount,
             queryCount,

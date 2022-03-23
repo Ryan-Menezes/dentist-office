@@ -1,7 +1,7 @@
 const { Role, Permission } = require('../models/index')
 const auth = require('../../config/auth')
 
-module.exports = async (req, res, next) => {
+module.exports = async (req, res, next, permission) => {
     if(!req.cookies || !req.cookies[auth.cookie.name]){
         return res.status(404).render('error', {
             layout: false,
@@ -19,9 +19,9 @@ module.exports = async (req, res, next) => {
 
     user.roles.forEach(role => {
         Permission.findAll({
-            // where: {
-            //     name: 'teste'
-            // },
+            where: {
+                name: permission
+            },
             include: {
                 model: Role,
                 as: 'roles',
@@ -33,6 +33,7 @@ module.exports = async (req, res, next) => {
             }
         })
         .then(permissions => {
+            console.log(permissions)
             if(!permissions.length){
                 return res.status(404).render('error', {
                     layout: false,
@@ -40,7 +41,7 @@ module.exports = async (req, res, next) => {
                 })
             }
 
-            next()
+            //next()
         })
         .catch(async (error) => {
             await res.status(500).render('error', {
