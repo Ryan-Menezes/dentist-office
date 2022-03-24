@@ -66,17 +66,16 @@ const hbs = handlebars.create({
                                 name: permission
                             },
                             include: {
+                                required: true,
                                 model: Role,
                                 as: 'roles',
                                 through: {
                                     where: {
-                                        roleId: role.id
+                                        roleId: role.id,
                                     }
                                 }
                             }
                         })
-
-                        await console.log(permissions.length, permission)
 
                         return Boolean(permissions.length)
                     }catch(e){

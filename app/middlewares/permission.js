@@ -23,6 +23,7 @@ module.exports = async (req, res, next, permission) => {
                 name: permission
             },
             include: {
+                required: true,
                 model: Role,
                 as: 'roles',
                 through: {
@@ -33,7 +34,6 @@ module.exports = async (req, res, next, permission) => {
             }
         })
         .then(permissions => {
-            console.log(permissions)
             if(!permissions.length){
                 return res.status(404).render('error', {
                     layout: false,

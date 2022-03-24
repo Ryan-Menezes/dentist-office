@@ -25,18 +25,31 @@
                 <a href="{{url}}/painel" title="Página Inicial">
                     <li class="nav-list-item"><i class="fas fa-home"></i> Início</li>
                 </a>
+                
+                {{#if (can auth 'view.users')}}
                 <a href="{{url}}/painel/usuarios" title="Página de Usuários">
                     <li class="nav-list-item"><i class="fas fa-users"></i> Usuários</li>
                 </a>
+                {{/if}}
+
+                {{#if (can auth 'view.queries')}}
                 <a href="{{url}}/painel/consultas" title="Página de Consúltas">
                     <li class="nav-list-item"><i class="fas fa-calendar"></i> Consúltas</li>
                 </a>
+                {{/if}}
+
+                {{#if (can auth 'view.roles')}}
                 <a href="{{url}}/painel/funcoes" title="Página de Funções">
                     <li class="nav-list-item"><i class="fas fa-user-tie"></i> Funções</li>
                 </a>
+                {{/if}}
+
+                {{#if (can auth 'view.permissions')}}
                 <a href="{{url}}/painel/permissoes" title="Página de Permissões">
                     <li class="nav-list-item"><i class="fas fa-lock"></i> Permissões</li>
                 </a>
+                {{/if}}
+
                 <a href="{{url}}/painel/sair" title="Sair do Painel">
                     <li class="nav-list-item"><i class="fas fa-sign-out"></i> Sair</li>
                 </a>
