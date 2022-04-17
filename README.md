@@ -12,3 +12,8 @@ npx sequelize db:create
 npx sequelize db:migrate
 npx sequelize db:seed:all
 ```
+Finally, start the node.js server with the command "nodemon start" in a separate terminal:
+```sh
+cd "project directory"
+nodemon start
+```
